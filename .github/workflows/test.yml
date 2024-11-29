@@ -11,8 +11,8 @@ jobs:
       
       - name: Create Certificate
         run: |
-          chmod +x ./create_certificate.sh
-          ./create_certificate.sh \
+          chmod +x ./create_certificate_v1.sh
+          ./create_certificate_v1.sh \
             "${{ secrets.TRUSTOS_USERNAME }}" \
             "${{ secrets.TRUSTOS_PASSWORD }}" \
             "${{ secrets.TRUSTOS_SECRET }}" \
