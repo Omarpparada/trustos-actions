@@ -1,8 +1,0 @@
-Secrets
-  https://github.com/Omarpparada/trustos-actions/settings/secrets/actions
-
-Variables
-  https://github.com/Omarpparada/trustos-actions/settings/variables/actions
-
-Execute Action
-  https://github.com/Omarpparada/trustos-actions/actions/workflows/cert-v1.yml
