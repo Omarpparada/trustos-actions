@@ -90,7 +90,8 @@ CERT_RESPONSE=$(curl -s \
             \"repo\": \"$GITHUB_REPO\",
             \"user\": \"$GITHUB_USER\",
             \"commit\": \"$GITHUB_COMMIT\"
-        }
+        },
+        \"externalId\": \"${GITHUB_REPO}/${GITHUB_COMMIT}\"
     }")
 
 # Extraer y mostrar el certID

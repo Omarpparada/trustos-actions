@@ -1,0 +1,23 @@
+name: Create Certificate v1
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-certificate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Create Certificate v1
+        run: |
+          chmod +x ./create_certificate_v1.sh
+          ./create_certificate_v1.sh \
+            "${{ vars.LOGIN_URL }}" \
+            "${{ vars.CERT_URL }}" \
+            "${{ secrets.TRUSTOS_USERNAME }}" \
+            "${{ secrets.TRUSTOS_PASSWORD }}" \
+            "${{ secrets.TRUSTOS_SECRET }}" \
+            "${{ github.actor }}" \
+            "${{ github.sha }}" \
+            "${{ github.repository }}"

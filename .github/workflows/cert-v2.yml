@@ -1,4 +1,4 @@
-name: Create Certificate
+name: Create Certificate v2
 
 on:
   workflow_dispatch:
@@ -9,15 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Create Certificate
+      - name: Create Certificate v2
         run: |
-          chmod +x ./create_certificate_v1.sh
+          chmod +x ./create_certificate_v2.sh
           ./create_certificate_v1.sh \
             "${{ vars.LOGIN_URL }}" \
             "${{ vars.CERT_URL }}" \
             "${{ secrets.TRUSTOS_USERNAME }}" \
             "${{ secrets.TRUSTOS_PASSWORD }}" \
-            "${{ secrets.TRUSTOS_SECRET }}" \
             "${{ github.actor }}" \
             "${{ github.sha }}" \
             "${{ github.repository }}"
