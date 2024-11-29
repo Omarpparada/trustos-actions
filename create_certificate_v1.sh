@@ -3,13 +3,13 @@
 # Verificar si se proporcionaron los parámetros necesarios
 if [ $# -ne 8 ]; then
     echo "Uso: $0 <login_url> <cert_url> <username> <password> <secret> <github_user> <github_commit> <github_repo>"
-    echo "Ejemplo: $0 'https://trustos-id.com' 'https://trustos-cert.com' 'did:user:example123' 'mypassword' 'your-secret-key' 'johndoe' 'abc123' 'owner/repo"
+    echo "Ejemplo: $0 'https://trustos-id.com' 'https://trustos-cert.com' 'did:user:example123' 'mypassword' 'your-secret-key' 'johndoe' 'abc123' 'owner/repo'"
     exit 1
 fi
 
 # Configuración
-LOGIN_URL=$1
-CERT_URL=$2
+LOGIN_URL="$1"
+CERT_URL="$2"
 
 # Capturar parámetros
 USERNAME="$3"

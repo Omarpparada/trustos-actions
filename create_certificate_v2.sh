@@ -1,21 +1,22 @@
 #!/bin/bash
 
 # Verificar si se proporcionaron los parámetros necesarios
-if [ $# -ne 4 ]; then
-    echo "Uso: $0 <username> <password> <github_user> <github_commit>"
-    echo "Ejemplo: $0 'did:user:example123' 'mypassword' 'johndoe' 'abc123'"
+if [ $# -ne 6 ]; then
+    echo "Uso: $0 <login_url> <cert_url> <username> <password> <github_user> <github_commit> <github_repo>"
+    echo "Ejemplo: $0 'https://trustos-id.com' 'https://trustos-cert.com' 'did:user:example123' 'mypassword' 'johndoe' 'abc123' 'owner/repo'"
     exit 1
 fi
 
 # Configuración
-LOGIN_URL="https://lab.trustos.telefonicatech.com/id/v2/login"
-CERT_URL="https://lab.trustos.telefonicatech.com/cert/v2/certificates?networkId=10004"
+LOGIN_URL="$1"
+CERT_URL="$2"
 
 # Capturar parámetros
-USERNAME="$1"
-PASSWORD="$2"
-GITHUB_USER="$3"
-GITHUB_COMMIT="$4"
+USERNAME="$3"
+PASSWORD="$4"
+GITHUB_USER="$5"
+GITHUB_COMMIT="$6"
+GITHUB_REPO="$7"
 
 # Realizar login y mostrar la respuesta para debug
 echo "Realizando login..."
@@ -53,6 +54,7 @@ CERT_RESPONSE=$(curl -s \
         \"name\": \"Github Code Certificate\",
         \"description\": \"Github code certificate description\",
         \"content\": {
+            \"repo\": \"$GITHUB_REPO\",
             \"user\": \"$GITHUB_USER\",
             \"commit\": \"$GITHUB_COMMIT\"
         }
