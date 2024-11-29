@@ -13,8 +13,11 @@ jobs:
         run: |
           chmod +x ./create_certificate_v1.sh
           ./create_certificate_v1.sh \
+            "${{ vars.LOGIN_URL }}" \
+            "${{ vars.CERT_URL }}" \
             "${{ secrets.TRUSTOS_USERNAME }}" \
             "${{ secrets.TRUSTOS_PASSWORD }}" \
             "${{ secrets.TRUSTOS_SECRET }}" \
             "${{ github.actor }}" \
-            "${{ github.sha }}"
+            "${{ github.sha }}" \
+            "${{ github.repository }}"
