@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Verificar si se proporcionaron los parámetros necesarios
-if [ $# -ne 6 ]; then
+if [ $# -ne 8 ]; then
     echo "Uso: $0 <login_url> <cert_url> <username> <password> <secret> <github_user> <github_commit> <github_repo>"
     echo "Ejemplo: $0 'https://trustos-id.com' 'https://trustos-cert.com' 'did:user:example123' 'mypassword' 'your-secret-key' 'johndoe' 'abc123' 'owner/repo"
     exit 1
