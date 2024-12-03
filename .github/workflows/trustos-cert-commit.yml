@@ -1,18 +1,20 @@
-name: Create Certificate v1
+name: Create TrustOS Certificate of a Commit
 
 on:
-  workflow_dispatch:
-
+  push:
+    branches:
+      - master
+      - main
 jobs:
   create-certificate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       
-      - name: Create Certificate v1
+      - name: Create Certificate
         run: |
-          chmod +x ./create_certificate_v1.sh
-          ./create_certificate_v1.sh \
+          chmod +x ./sh/trustos_cert_commit.sh
+          ./sh/trustos_cert_commit.sh \
             "${{ vars.LOGIN_URL }}" \
             "${{ vars.CERT_URL }}" \
             "${{ secrets.TRUSTOS_USERNAME }}" \
